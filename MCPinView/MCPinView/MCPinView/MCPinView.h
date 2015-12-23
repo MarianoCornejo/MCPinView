@@ -3,7 +3,7 @@
 //  MCPinView
 //
 //  Created by Mariano Cornejo on 8/11/15.
-//  Copyright (c) 2015 Mariano Cornejo. All rights reserved.
+//  Copyright (c) 2015 Belatrix. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, MCPinViewType){
 
 IB_DESIGNABLE @interface MCPinView : UIView <MCPinTextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet id <MCPinViewDelegate> delegate;
+@property (weak, nonatomic) IBOutlet id<MCPinViewDelegate> delegate;
 
 @property (assign, nonatomic) MCPinViewType pinType;
 

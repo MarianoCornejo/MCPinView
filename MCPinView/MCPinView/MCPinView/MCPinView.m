@@ -1,9 +1,9 @@
 //
 //  MCPinView.m
-//  MCPinView
+//  AnotherTest
 //
 //  Created by Mariano Cornejo on 8/11/15.
-//  Copyright (c) 2015 Mariano Cornejo. All rights reserved.
+//  Copyright (c) 2015 PLDevelop. All rights reserved.
 //
 
 #import "MCPinView.h"
@@ -60,7 +60,7 @@
 #pragma mark - Private
 
 - (MCPinTextField *)nextTextField:(MCPinTextField *)textField {
-    int nextTag = textField.tag == self.fields.count ? 9999 : (int)(textField.tag+1);
+    int nextTag = textField.tag == self.fields.count ? 9999 : (textField.tag+1);
     if (nextTag != 9999) {
         MCPinTextField *nextTextField = (MCPinTextField *)[self viewWithTag:nextTag];
         return nextTextField;
@@ -69,7 +69,7 @@
 }
 
 - (MCPinTextField *)previousTextField:(MCPinTextField *)textField {
-    int previousTag = textField.tag == 1 ? 9999 : (int)(textField.tag-1);
+    int previousTag = textField.tag == 1 ? 9999 : (textField.tag-1);
     if (previousTag != 9999) {
         MCPinTextField *previousTextField = (MCPinTextField *)[self viewWithTag:previousTag];
         return previousTextField;
@@ -151,6 +151,7 @@
     self.canBecomeFirstResponder = YES;
     MCPinTextField *pin = [self.fields firstObject];
     [pin becomeFirstResponder];
+    pin.text = @" ";
 }
 
 - (NSString *)retrievePinNumber {
@@ -158,6 +159,7 @@
     for (MCPinTextField *textField in self.fields) {
         pinNumber = [NSString stringWithFormat:@"%@%@",pinNumber,textField.text];
     }
+    pinNumber = [pinNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
     return pinNumber;
 }
 
@@ -184,6 +186,7 @@
     MCPinTextField *nextTextField = [self nextTextField:pinTextField];
     if (nextTextField) {
         [nextTextField becomeFirstResponder];
+        nextTextField.text = @" ";
     }
     
     if (pinTextField == [self.fields lastObject]) {
@@ -200,6 +203,7 @@
     MCPinTextField *previousTextField = [self previousTextField:pinTextField];
     if (previousTextField) {
         [previousTextField becomeFirstResponder];
+        previousTextField.text = @" ";
     }
 }
 

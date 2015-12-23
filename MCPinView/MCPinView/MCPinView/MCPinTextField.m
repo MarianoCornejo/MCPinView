@@ -1,9 +1,9 @@
 //
 //  MCPinTextField.m
-//  MCPinView
+//  AnotherTest
 //
-//  Created by Mariano Cornejo on 8/11/15.
-//  Copyright (c) 2015 Mariano Cornejo. All rights reserved.
+//  Created by Mariano Cornejo on 12/10/15.
+//  Copyright © 2015 Belatrix. All rights reserved.
 //
 
 #import "MCPinTextField.h"
@@ -142,20 +142,27 @@ CGFloat const kFailFlashDuration = 0.3;
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *currStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    int len = (int)currStr.length;
-    
-    if (len < self.pinLength) {
-        self.text = currStr;
-        [self unFill];
-    } else if (len == self.pinLength) {
-        self.text = currStr;
-        [self fill];
-        [self callReachPinLengthDelegate];
+    BOOL isPressedBackspaceAfterSingleSpaceSymbol = [string isEqualToString:@""] && [currStr isEqualToString:@""] && range.location == 0 && range.length == 1;
+    if (isPressedBackspaceAfterSingleSpaceSymbol) {
+        [self deleteBackward];
+        return NO;
     } else {
-        [self callReachPinLengthDelegate];
+        int len = (int)currStr.length;
+        
+        if (len < 2) {
+            self.text = currStr;
+            [self unFill];
+        } else if (len == 2) {
+            self.text = currStr;
+            [self fill];
+            [self callReachPinLengthDelegate];
+        } else {
+            [self callReachPinLengthDelegate];
+        }
+        
+        return NO;
     }
     
-    return NO;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

@@ -1,9 +1,9 @@
 //
 //  MCPinTextField.h
-//  MCPinView
+//  AnotherTest
 //
-//  Created by Mariano Cornejo on 8/11/15.
-//  Copyright (c) 2015 Mariano Cornejo. All rights reserved.
+//  Created by Mariano Cornejo on 12/10/15.
+//  Copyright © 2015 Belatrix. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
