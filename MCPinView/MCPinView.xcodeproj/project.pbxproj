@@ -14,8 +14,8 @@
 		D5958E521C24A82C00224FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5958E511C24A82C00224FF0 /* Assets.xcassets */; };
 		D5958E551C24A82C00224FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5958E531C24A82C00224FF0 /* LaunchScreen.storyboard */; };
 		D5958E651C24B76100224FF0 /* PinLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5958E641C24B76100224FF0 /* PinLoginViewController.m */; settings = {ASSET_TAGS = (); }; };
-		D5CD5E411C2B34C8001F5B73 /* MCPinTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CD5E3E1C2B34C8001F5B73 /* MCPinTextField.m */; settings = {ASSET_TAGS = (); }; };
-		D5CD5E421C2B34C8001F5B73 /* MCPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CD5E401C2B34C8001F5B73 /* MCPinView.m */; settings = {ASSET_TAGS = (); }; };
+		D5CD5E5D1C332832001F5B73 /* MCPinTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CD5E5A1C332832001F5B73 /* MCPinTextField.m */; settings = {ASSET_TAGS = (); }; };
+		D5CD5E5E1C332832001F5B73 /* MCPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CD5E5C1C332832001F5B73 /* MCPinView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +31,10 @@
 		D5958E561C24A82C00224FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5958E631C24B76100224FF0 /* PinLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinLoginViewController.h; sourceTree = "<group>"; };
 		D5958E641C24B76100224FF0 /* PinLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinLoginViewController.m; sourceTree = "<group>"; };
-		D5CD5E3D1C2B34C8001F5B73 /* MCPinTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPinTextField.h; sourceTree = "<group>"; };
-		D5CD5E3E1C2B34C8001F5B73 /* MCPinTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPinTextField.m; sourceTree = "<group>"; };
-		D5CD5E3F1C2B34C8001F5B73 /* MCPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPinView.h; sourceTree = "<group>"; };
-		D5CD5E401C2B34C8001F5B73 /* MCPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPinView.m; sourceTree = "<group>"; };
+		D5CD5E591C332832001F5B73 /* MCPinTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPinTextField.h; sourceTree = "<group>"; };
+		D5CD5E5A1C332832001F5B73 /* MCPinTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPinTextField.m; sourceTree = "<group>"; };
+		D5CD5E5B1C332832001F5B73 /* MCPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPinView.h; sourceTree = "<group>"; };
+		D5CD5E5C1C332832001F5B73 /* MCPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPinView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +102,10 @@
 		D5CD5E3C1C2B34C8001F5B73 /* MCPinView */ = {
 			isa = PBXGroup;
 			children = (
-				D5CD5E3D1C2B34C8001F5B73 /* MCPinTextField.h */,
-				D5CD5E3E1C2B34C8001F5B73 /* MCPinTextField.m */,
-				D5CD5E3F1C2B34C8001F5B73 /* MCPinView.h */,
-				D5CD5E401C2B34C8001F5B73 /* MCPinView.m */,
+				D5CD5E591C332832001F5B73 /* MCPinTextField.h */,
+				D5CD5E5A1C332832001F5B73 /* MCPinTextField.m */,
+				D5CD5E5B1C332832001F5B73 /* MCPinView.h */,
+				D5CD5E5C1C332832001F5B73 /* MCPinView.m */,
 			);
 			path = MCPinView;
 			sourceTree = "<group>";
@@ -184,8 +184,8 @@
 				D5958E4D1C24A82C00224FF0 /* ViewController.m in Sources */,
 				D5958E4A1C24A82C00224FF0 /* AppDelegate.m in Sources */,
 				D5958E471C24A82C00224FF0 /* main.m in Sources */,
-				D5CD5E421C2B34C8001F5B73 /* MCPinView.m in Sources */,
-				D5CD5E411C2B34C8001F5B73 /* MCPinTextField.m in Sources */,
+				D5CD5E5E1C332832001F5B73 /* MCPinView.m in Sources */,
+				D5CD5E5D1C332832001F5B73 /* MCPinTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

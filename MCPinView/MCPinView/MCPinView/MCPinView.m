@@ -118,8 +118,9 @@
         tf.pinBorderWidth = self.fieldsBorderWidth;
         tf.pinBorderColor = self.fieldsBorderColor;
         tf.pinFillColor = self.fieldsBorderColor;
-        tf.pinFailColor = [UIColor redColor];
+        tf.pinFailColor = self.pinFailColor ? self.pinFailColor : [UIColor redColor];
         tf.pinCornerRadius = self.fieldsCornerRadius;
+        tf.failFlashDuration = self.failFlashDuration;
         tf.backgroundColor = fieldColor;
         tf.tag = x+1;
         
@@ -151,7 +152,6 @@
     self.canBecomeFirstResponder = YES;
     MCPinTextField *pin = [self.fields firstObject];
     [pin becomeFirstResponder];
-    pin.text = @" ";
 }
 
 - (NSString *)retrievePinNumber {
@@ -186,7 +186,6 @@
     MCPinTextField *nextTextField = [self nextTextField:pinTextField];
     if (nextTextField) {
         [nextTextField becomeFirstResponder];
-        nextTextField.text = @" ";
     }
     
     if (pinTextField == [self.fields lastObject]) {
@@ -203,7 +202,6 @@
     MCPinTextField *previousTextField = [self previousTextField:pinTextField];
     if (previousTextField) {
         [previousTextField becomeFirstResponder];
-        previousTextField.text = @" ";
     }
 }
 

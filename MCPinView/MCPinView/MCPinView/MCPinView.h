@@ -40,7 +40,8 @@ IB_DESIGNABLE @interface MCPinView : UIView <MCPinTextFieldDelegate>
 @property (strong, nonatomic) IBInspectable UIColor *fieldsBorderColor;
 @property (assign, nonatomic) IBInspectable CGFloat fieldsCornerRadius;
 @property (strong, nonatomic) IBInspectable UIImage *fieldsBackgroundImage;
-
+@property (strong, nonatomic) IBInspectable UIColor *pinFailColor;
+@property (assign, nonatomic) IBInspectable CGFloat failFlashDuration;
 @property (assign, nonatomic) IBInspectable BOOL centerContent;
 
 - (void)failFlash;

@@ -46,10 +46,13 @@ CGFloat const kFailFlashDuration = 0.3;
     self.keyboardType = UIKeyboardTypeNumberPad;
     self.autocorrectionType = UITextAutocorrectionTypeNo;
     self.borderStyle = UITextBorderStyleNone;
+    self.pinLength = (self.pinType == kPinTypeDefault) ? 2 : 4;
     if (!self.cursorEnabled) {
         self.tintColor = [UIColor clearColor];
     }
-    self.pinLength = (self.pinType == kPinTypeDefault) ? 1 : 4;
+    if (self.pinType == kPinTypeDefault) {
+        self.textColor = [UIColor clearColor];
+    }
     if (self.pinBorderColor && self.pinBorderWidth) {
         self.layer.borderWidth = self.pinBorderWidth;
         self.layer.borderColor = self.pinBorderColor.CGColor;
@@ -63,9 +66,10 @@ CGFloat const kFailFlashDuration = 0.3;
 #pragma mark - Public
 
 - (void)failFlash:(void (^)(void))completion {
-    CGFloat duration = self.failFlashDuration ? self.failFlashDuration : kFailFlashDuration;
+    CGFloat duration = self.failFlashDuration;
 
     self.layer.borderColor = self.pinFailColor.CGColor;
+
     [UIView animateWithDuration:duration animations:^{
         self.layer.backgroundColor = self.pinFailColor.CGColor;
     } completion:^(BOOL finished) {
@@ -97,7 +101,7 @@ CGFloat const kFailFlashDuration = 0.3;
 }
 
 - (void)clear {
-    self.text = @"";
+    self.text = @" ";
     [self unFill];
 }
 
@@ -149,10 +153,10 @@ CGFloat const kFailFlashDuration = 0.3;
     } else {
         int len = (int)currStr.length;
         
-        if (len < 2) {
+        if (len < self.pinLength) {
             self.text = currStr;
             [self unFill];
-        } else if (len == 2) {
+        } else if (len == self.pinLength) {
             self.text = currStr;
             [self fill];
             [self callReachPinLengthDelegate];
