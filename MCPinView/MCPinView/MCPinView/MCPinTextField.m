@@ -19,6 +19,7 @@ CGFloat const kFailFlashDuration = 0.3;
 @end
 
 @implementation MCPinTextField
+@synthesize text = _text;
 
 #pragma mark - Lifecycle
 
@@ -36,6 +37,12 @@ CGFloat const kFailFlashDuration = 0.3;
         [self setUp];
     }
     return self;
+}
+
+#pragma mark - Override
+
+- (void)setText:(NSString *)text {
+    _text = text;
 }
 
 #pragma mark - Private
@@ -101,7 +108,7 @@ CGFloat const kFailFlashDuration = 0.3;
 }
 
 - (void)clear {
-    self.text = @" ";
+    [self setText:@" "];
     [self unFill];
 }
 
