@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 @class MCPinTextField;
 
-typedef NS_ENUM(NSInteger, kPinType){
-    kPinTypeDefault = 0,
-    kPinTypeCard
-};
-
 @protocol MCPinTextFieldDelegate <NSObject>
 
 - (void)mcPinTextFieldDidReachPinLength:(MCPinTextField *)pinTextField;
@@ -27,8 +22,6 @@ typedef NS_ENUM(NSInteger, kPinType){
 IB_DESIGNABLE @interface MCPinTextField : UITextField
 
 @property (weak, nonatomic) id<MCPinTextFieldDelegate> pinTextFieldDelegate;
-
-@property (assign, nonatomic) kPinType pinType;
 
 @property (strong, nonatomic) IBInspectable UIColor *pinFillColor;
 @property (strong, nonatomic) IBInspectable UIColor *pinFailColor;

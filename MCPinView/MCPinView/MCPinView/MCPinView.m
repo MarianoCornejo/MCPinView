@@ -22,7 +22,8 @@
 
 #pragma mark - Custom accesors
 
--(NSMutableArray *)fields{
+
+- (NSMutableArray *)fields{
     if (!_fields) {
         _fields = [[NSMutableArray alloc] init];
     }
@@ -60,7 +61,7 @@
 #pragma mark - Private
 
 - (MCPinTextField *)nextTextField:(MCPinTextField *)textField {
-    int nextTag = textField.tag == self.fields.count ? 9999 : (textField.tag+1);
+    NSInteger nextTag = textField.tag == self.fields.count ? 9999 : (textField.tag+1);
     if (nextTag != 9999) {
         MCPinTextField *nextTextField = (MCPinTextField *)[self viewWithTag:nextTag];
         return nextTextField;
@@ -69,7 +70,7 @@
 }
 
 - (MCPinTextField *)previousTextField:(MCPinTextField *)textField {
-    int previousTag = textField.tag == 1 ? 9999 : (textField.tag-1);
+    NSInteger previousTag = textField.tag == 1 ? 9999 : (textField.tag-1);
     if (previousTag != 9999) {
         MCPinTextField *previousTextField = (MCPinTextField *)[self viewWithTag:previousTag];
         return previousTextField;
@@ -165,17 +166,14 @@
 
 #pragma mark - Override
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
-    
+    [super drawRect:rect];
     [self setUpPinView];
     
     [self setUpFields];
     
     [self addSubview:self.slider];
-    
+
     [self restartSliderPosition];
 }
 
@@ -186,9 +184,7 @@
     MCPinTextField *nextTextField = [self nextTextField:pinTextField];
     if (nextTextField) {
         [nextTextField becomeFirstResponder];
-    }
-    
-    if (pinTextField == [self.fields lastObject]) {
+    } else {
         self.canBecomeFirstResponder = NO;
         if ([self.delegate respondsToSelector:@selector(mcPinViewDidEndFillingAll:pinNumber:)]) {
             NSString *pinNumber = [self retrievePinNumber];
@@ -201,6 +197,7 @@
     self.canBecomeFirstResponder = YES;
     MCPinTextField *previousTextField = [self previousTextField:pinTextField];
     if (previousTextField) {
+        [previousTextField clear];
         [previousTextField becomeFirstResponder];
     }
 }
@@ -208,7 +205,6 @@
 - (void)mcPinTextFieldDidBeginEditing:(MCPinTextField *)pinTextField {
     self.canBecomeFirstResponder = NO;
     self.currentPinTextField = pinTextField;
-    
     [UIView animateWithDuration:0.1 animations:^{
         self.slider.frame = CGRectMake(pinTextField.frame.origin.x, self.slider.frame.origin.y, self.slider.frame.size.width, self.slider.frame.size.height);
     }];

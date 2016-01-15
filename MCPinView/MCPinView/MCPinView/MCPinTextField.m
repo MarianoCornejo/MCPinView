@@ -19,7 +19,6 @@ CGFloat const kFailFlashDuration = 0.3;
 @end
 
 @implementation MCPinTextField
-@synthesize text = _text;
 
 #pragma mark - Lifecycle
 
@@ -39,26 +38,17 @@ CGFloat const kFailFlashDuration = 0.3;
     return self;
 }
 
-#pragma mark - Override
-
-- (void)setText:(NSString *)text {
-    _text = text;
-}
-
 #pragma mark - Private
 
 - (void)setUp {
     self.delegate = self;
-    self.textAlignment = NSTextAlignmentCenter;
     self.keyboardType = UIKeyboardTypeNumberPad;
     self.autocorrectionType = UITextAutocorrectionTypeNo;
     self.borderStyle = UITextBorderStyleNone;
-    self.pinLength = (self.pinType == kPinTypeDefault) ? 2 : 4;
+    self.text = @" ";
+    self.pinLength = 2;
     if (!self.cursorEnabled) {
         self.tintColor = [UIColor clearColor];
-    }
-    if (self.pinType == kPinTypeDefault) {
-        self.textColor = [UIColor clearColor];
     }
     if (self.pinBorderColor && self.pinBorderWidth) {
         self.layer.borderWidth = self.pinBorderWidth;
@@ -108,8 +98,8 @@ CGFloat const kFailFlashDuration = 0.3;
 }
 
 - (void)clear {
-    [self setText:@" "];
     [self unFill];
+    self.text = @" ";
 }
 
 #pragma mark - Private
@@ -177,11 +167,6 @@ CGFloat const kFailFlashDuration = 0.3;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if (self.pinType != kPinTypeDefault) {
-        [self unFill];
-    } else {
-        [self clear];
-    }
     if ([self.pinTextFieldDelegate respondsToSelector:@selector(mcPinTextFieldDidBeginEditing:)]) {
         [self.pinTextFieldDelegate mcPinTextFieldDidBeginEditing:(MCPinTextField *)textField];
     }

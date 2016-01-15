@@ -10,13 +10,6 @@
 #import "MCPinTextField.h"
 @class MCPinView;
 
-typedef NS_ENUM(NSInteger, MCPinViewType){
-    /*! Default type is used to security pins*/
-    MCPinViewTypeDefault = 0,
-    /*! Card type is used to credit cards*/
-    MCPinViewTypeCard
-};
-
 @protocol MCPinViewDelegate <NSObject>
 
 - (void)mcPinViewDidEndFillingAll:(MCPinView *)pinView pinNumber:(NSString *)pinNumber;
@@ -25,9 +18,7 @@ typedef NS_ENUM(NSInteger, MCPinViewType){
 
 IB_DESIGNABLE @interface MCPinView : UIView <MCPinTextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet id<MCPinViewDelegate> delegate;
-
-@property (assign, nonatomic) MCPinViewType pinType;
+@property (weak, nonatomic) IBOutlet id <MCPinViewDelegate> delegate;
 
 @property (strong, nonatomic) IBInspectable UIImage *backgroundImage;
 
